@@ -1,14 +1,19 @@
 from wxpy import *
+import argparse
 import generate_map
 import generate_fig
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-map',type=bool,default=True,help='show friends loaction distribution map')
+parser.add_argument('-fig',type=bool,default=True,help='show friends gender distribution fig')
+args = parser.parse_args()
+
+print('Please scan this QR code')
 bot = Bot()
 
 # 机器人账号自身
 myself = bot.self
-
-# # 向文件传输助手发送消息
-# bot.file_helper.send('Hello from wxpy!')
 
 friends = bot.friends()
 
@@ -88,8 +93,9 @@ bot.file_helper.send(friends_str)
 print(friends_str)
 
 # send friends distribution figure 
-generate_map.generate_map(provinces)
-bot.file_helper.send_image('map.png')
+if args.map:
+	generate_map.generate_map(provinces)
+	bot.file_helper.send_image('map.png')
 
 # send friends gender distribution mag
 friends_gender_str = '您一共有 {} 名好友，其中男生 {} 名，女生 {} 名。'.format(total,male,female)
@@ -97,8 +103,9 @@ bot.file_helper.send(friends_gender_str)
 print(friends_gender_str)
 
 # send friends gender distribution figure
-generate_fig.generate_fig({'Male':male,'Female':female,'Unknow':total-male-female})
-bot.file_helper.send_image('fig.png')
+if args.fig:
+	generate_fig.generate_fig({'Male':male,'Female':female,'Unknow':total-male-female})
+	bot.file_helper.send_image('fig.png')
 
 
 bot.logout()
