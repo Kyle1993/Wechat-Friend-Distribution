@@ -18,5 +18,5 @@ python3 friends_distribution.py -map False
 
 ## 效果
 <img src="./Screenshot.png" width="50%" height="50%">  
-<img src="./map.png" width="70%" height="70%">  
+<img src="./map.png" width="60%" height="60%">  
 <img src="./fig.png" width="50%" height="50%">  
