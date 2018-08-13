@@ -1,8 +1,4 @@
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-from mpl_toolkits.basemap import Basemap
-from matplotlib.patches import Polygon
-from matplotlib import cm
+
 import math
 
 def tanh(x):
@@ -10,6 +6,11 @@ def tanh(x):
 
 
 def generate_map(data,show=False):
+	import matplotlib as mpl
+	import matplotlib.pyplot as plt
+	from mpl_toolkits.basemap import Basemap
+	from matplotlib.patches import Polygon
+	from matplotlib import cm
 
 	# add HKG,OMA to GuangDong
 	data['广东'] += (data['香港']+data['澳门'])

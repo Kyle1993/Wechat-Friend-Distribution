@@ -16,7 +16,7 @@ parser.add_argument("-map", type=str2bool, nargs='?',const=True, default=True,he
 parser.add_argument("-fig", type=str2bool, nargs='?',const=True, default=True,help='show friends gender distribution fig')
 
 args = parser.parse_args()
-print(args.map,args.fig)
+# print(args.map,args.fig)
 
 
 # print('Please scan this QR code')
