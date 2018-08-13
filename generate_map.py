@@ -10,12 +10,10 @@ def tanh(x):
 
 
 def generate_map(data,show=False):
-	# mpl.rcParams['font.sans-serif']=['SimHei'] #指定默认字体 SimHei为黑体
-	# mpl.rcParams['axes.unicode_minus']=False #用来正常显示负号
-	# myfont = mpl.font_manager.FontProperties(fname="SimHei.ttc")
 
-	# add HK G,OMA to GuangDong
+	# add HKG,OMA to GuangDong
 	data['广东'] += (data['香港']+data['澳门'])
+	
 	# get color cmp
 	color_cmp = plt.get_cmap('Blues') 
 
@@ -50,8 +48,7 @@ def generate_map(data,show=False):
 	    ax.add_patch(Polygon(shapedict, color=data['台湾'][1]))
 
 	plt.axis("off")  #关闭坐标轴
-	# plt.title('好友分布图',fontproperties=myfont)
-	plt.title('Friends Distribution',fontsize = 24)
+	plt.title('Friends Location Distribution',fontsize = 24)
 	plt.savefig("map.png")
 	if show:
 		plt.show()
