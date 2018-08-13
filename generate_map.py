@@ -13,7 +13,7 @@ def generate_map(data,show=False):
 
 	# add HKG,OMA to GuangDong
 	data['广东'] += (data['香港']+data['澳门'])
-	
+
 	# get color cmp
 	color_cmp = plt.get_cmap('Blues') 
 
@@ -45,7 +45,7 @@ def generate_map(data,show=False):
 		ax.add_patch(Polygon(m.provinces[i],color = data[s][1]))
 	#台湾地区进行上色
 	for i, shapedict in enumerate(m.taiwan):
-	    ax.add_patch(Polygon(shapedict, color=data['台湾'][1]))
+		ax.add_patch(Polygon(shapedict, color=data['台湾'][1]))
 
 	plt.axis("off")  #关闭坐标轴
 	plt.title('Friends Location Distribution',fontsize = 24)
