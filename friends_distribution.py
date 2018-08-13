@@ -22,9 +22,6 @@ print(args.map,args.fig)
 # print('Please scan this QR code')
 bot = Bot()
 
-# 机器人账号自身
-myself = bot.self
-
 friends = bot.friends()
 
 total = 0
