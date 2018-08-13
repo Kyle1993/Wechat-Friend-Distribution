@@ -20,3 +20,6 @@ python3 friends_distribution.py -map False
 <img src="./Screenshot.png" width="50%" height="50%">  
 <img src="./map.png" width="60%" height="60%">  
 <img src="./fig.png" width="50%" height="50%">  
+
+## TODO
+* 台湾地区的province显示是台湾的城市，比如‘Kaohsiung City’(高雄),而city显示的是‘’，没办法统计

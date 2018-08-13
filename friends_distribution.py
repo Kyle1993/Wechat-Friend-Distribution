@@ -69,6 +69,16 @@ provinces = {
 
 for f in friends:
 	total += 1
+
+	if f.sex == 1:
+		male += 1
+	elif f.sex == 2:
+		female += 1
+	# not work well for Taiwan, province=city_in_Taiwan like 高雄, city=''
+	if f.province == '中国台湾':
+		provinces['台湾'] += 1
+		continue
+
 	if f.province in provinces.keys():
 		provinces[f.province] += 1
 	elif f.province is None or f.province == '':
@@ -76,10 +86,6 @@ for f in friends:
 	else:
 		out_of_china += 1
 
-	if f.sex == 1:
-		male += 1
-	elif f.sex == 2:
-		female += 1
 
 
 sort_data = sorted(provinces.items(),key=lambda x:x[1])
@@ -115,4 +121,5 @@ if args.fig:
 	bot.file_helper.send_image('fig.png')
 
 
-bot.logout()
+# bot.logout()
+embed()

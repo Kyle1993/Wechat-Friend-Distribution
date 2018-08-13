@@ -1,20 +1,29 @@
+from wxpy import *
 import argparse
 
+name_list = ['付豪','郑瑞阳','占汝真','吴逸飞','郑罗敏',]
+# name_list = ['占汝真']
+bot = Bot()
 
-def str2bool(v):
-    if v.lower() in ('yes', 'true', 't', 'y', '1'):
-        return True
-    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
-        return False
-    else:
-        raise argparse.ArgumentTypeError('Boolean value expected.')
+friends = {}
+for name in name_list:
+	if name == '占汝真':
+		friends[name] = ensure_one(bot.search(name,nick_name='Irita'))
+	else:
+		friends[name] = ensure_one(bot.search(name))
 
-parser = argparse.ArgumentParser()
-# parser.add_argument('-map',type=bool,default=True,help='show friends loaction distribution map')
-# parser.add_argument('-fig',type=bool,default=True,help='show friends gender distribution fig')
-parser.add_argument("-map", type=str2bool, nargs='?',const=True, default=True,help='show friends loaction distribution map')
-parser.add_argument("-fig", type=str2bool, nargs='?',const=True, default=True,help='show friends gender distribution fig')
+tuling = Tuling(api_key='5e9fe11469fb490f872cbd268ea0ea64')
+
+for name in name_list:
+	friends[name].send(name+"！我想死你了！" )
 
 
-args = parser.parse_args()
-print(args.map,args.fig)
+# 使用图灵机器人自动与指定好友聊天
+assert len(list(friends.values())) != 0
+@bot.register(list(friends.values()))
+def reply_my_friend(msg):
+    tuling.do_reply(msg)
+
+
+# bot.join()
+# embed()
