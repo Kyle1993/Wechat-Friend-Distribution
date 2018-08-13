@@ -23,7 +23,7 @@ def generate_map(data,show=False):
 	for k in data.keys():
 		c = (data[k]/total)*15
 		c = tanh(c)
-		data[k] = (c,color_cmp(c))
+		data[k] = (c,color_cmp(c)) # [value, color]
 
 	# generate figure
 	plt.figure(figsize=(8,6))
