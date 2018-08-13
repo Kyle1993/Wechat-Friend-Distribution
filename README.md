@@ -17,6 +17,6 @@ python3 friends_distribution.py -map False
 ```
 
 ## 效果
-<img src="./Screenshot.png">  
-<img src="./map.png">  
-<img src="./fig.png">  
+<img src="./Screenshot.png" width="50%" height="50%">  
+<img src="./map.png" width="50%" height="50%">  
+<img src="./fig.png" width="50%" height="50%">  
